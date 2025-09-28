@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EduGuideAI</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <div id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+      <span id="hamburger">&#9776;</span>
+      <h2>EduGuideAI</h2>
+    </div>
+    <ul class="menu">
+      <li data-section="general" class="active">General AI</li>
+      <li data-section="flashcards">Flashcards</li>
+      <li data-section="quiz">Quiz</li>
+      <li data-section="summarizer">Summarizer</li>
+      <li data-section="planner">Semester Planner</li>
+      <li data-section="explainer">Code Explainer</li>
+      <li data-section="history">Chat History</li>
+      <li id="theme-toggle">🌙 Dark Mode</li>
+    </ul>
+  </div>
+
+  <div class="main">
+    <div id="general" class="section active-section">
+      <h2>General AI</h2>
+      <textarea id="general-question" placeholder="Ask a question..."></textarea>
+      <button id="general-ask">Ask</button>
+      <div id="general-answer" class="answer-box"></div>
+    </div>
+
+    <div id="flashcards" class="section">
+      <h2>Flashcards</h2>
+      <textarea id="flashcards-input" placeholder="Enter text to generate flashcards..."></textarea>
+      <button id="flashcards-generate">Generate Flashcards</button>
+      <div id="flashcards-output" class="answer-box"></div>
+    </div>
+
+    <div id="quiz" class="section">
+      <h2>Quiz</h2>
+      <textarea id="quiz-input" placeholder="Enter text to generate a quiz..."></textarea>
+      <button id="quiz-generate">Generate Quiz</button>
+      <div id="quiz-output" class="answer-box"></div>
+    </div>
+
+    <div id="summarizer" class="section">
+      <h2>Summarizer</h2>
+      <textarea id="summarizer-text" placeholder="Paste notes here..."></textarea>
+      <button id="summarize-btn">Summarize</button>
+      <div id="summarizer-answer" class="answer-box"></div>
+    </div>
+
+    <div id="planner" class="section">
+      <h2>Semester Planner</h2>
+      <label>Semester Start Date:</label>
+      <input type="date" id="semester-start">
+      <label>Exam Dates (Subject - Date):</label>
+      <textarea id="exam-dates" placeholder="Math - 01/12/2026"></textarea>
+      <button id="generate-plan">Generate Plan</button>
+      <div id="planner-output" class="answer-box"></div>
+    </div>
+    
+    <div id="explainer" class="section">
+      <h2>Code Explainer</h2>
+      <textarea id="explainer-code" placeholder="Paste your code here..."></textarea>
+      <button id="explain-btn">Explain Code</button>
+      <div id="explainer-answer" class="answer-box"></div>
+    </div>
+
+    <div id="history" class="section">
+      <h2>Chat History</h2>
+      <div id="chat-history-list"></div>
+    </div>
+
+  </div>
+</div>
+<div id="loading-spinner" class="spinner-hidden"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

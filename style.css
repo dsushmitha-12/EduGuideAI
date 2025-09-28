@@ -1,0 +1,204 @@
+:root {
+  --bg-color: #f4f4f4;
+  --text-color: #333;
+  --main-bg: #fff;
+  --accent-color: #1e90ff;
+  --sidebar-bg: #1e90ff;
+  --sidebar-text: #fff;
+}
+
+body.dark-mode {
+  --bg-color: #1a1a1a;
+  --text-color: #f4f4f4;
+  --main-bg: #2d2d2d;
+  --accent-color: #0d6efd;
+  --sidebar-bg: #2d2d2d;
+  --sidebar-text: #f4f4f4;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  transition: width 0.3s, background 0.3s;
+  overflow: hidden;
+}
+.sidebar.collapsed {
+  width: 50px;
+}
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+.sidebar-header h2 {
+  margin-left: 10px;
+}
+#hamburger {
+  cursor: pointer;
+  font-size: 24px;
+}
+#theme-toggle {
+  cursor: pointer;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  padding: 0;
+}
+.menu li {
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+.menu li.active {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main */
+.main {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: var(--main-bg);
+}
+
+/* Sections */
+.section {
+  display: none;
+}
+.section.active-section {
+  display: block;
+}
+
+/* Inputs and buttons */
+textarea, input {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+}
+button {
+  padding: 10px 15px;
+  background: var(--accent-color);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+button:hover {
+  background: #0d6efd;
+}
+
+.answer-box {
+  background: var(--main-bg);
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+  white-space: pre-wrap;
+  border: 1px solid #ddd;
+}
+
+/* Specific section colors */
+#flashcards { background-color: var(--main-bg); }
+#quiz { background-color: var(--main-bg); }
+#summarizer { background-color: var(--main-bg); }
+#planner { background-color: var(--main-bg); }
+#explainer { background-color: var(--main-bg); }
+#history { background-color: var(--main-bg); }
+
+/* Flashcard Flip Effect */
+.flashcard-item {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  perspective: 1000px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.flashcard-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flashcard-item.flipped .flashcard-inner {
+  transform: rotateY(180deg);
+}
+.flashcard-front, .flashcard-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.flashcard-front {
+  background-color: #fffae6;
+  color: var(--text-color);
+}
+.flashcard-back {
+  background-color: #e6fffa;
+  color: var(--text-color);
+  transform: rotateY(180deg);
+}
+
+/* Quiz styling */
+.quiz-question.correct {
+  border-left: 5px solid green;
+  background-color: #e6ffe6;
+}
+.quiz-question.incorrect {
+  border-left: 5px solid red;
+  background-color: #ffe6e6;
+}
+.quiz-options { list-style: none; padding: 0; }
+.feedback-message { font-weight: bold; margin-top: 5px; }
+
+/* Loading Spinner */
+#loading-spinner {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  z-index: 1000;
+}
+.spinner-hidden { display: none; }
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
