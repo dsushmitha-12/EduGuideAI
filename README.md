@@ -59,7 +59,3 @@ Our project is a full-stack application built with the following technologies:
 ### Using the App
 
 Open `index.html` in your browser. The app will connect to the running local server, and you can start using all the features.
-
-## 🏆 GT Hackathon 2025 Submission
-
-This project was a 48-hour prototype for the GT Hackathon. We are proud of what we accomplished and are excited to demonstrate the power of AI in education.
